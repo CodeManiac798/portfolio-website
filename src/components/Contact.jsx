@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,11 +16,36 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder form submission
-    alert('Form submitted! Thank you for reaching out. I\'ll get back to you soon!');
-    setFormData({ name: '', email: '', message: '' });
+    
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_1x0whzy';
+      const templateId = 'template_contact'; // You'll need to create this template in EmailJS
+      const publicKey = 'zF3P6sqSPaGAsf3IX'; // Your EmailJS public key
+      
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Aryan', // Your name
+        },
+        publicKey
+      );
+      
+      console.log('Email sent successfully:', result);
+      alert('Message sent successfully! I\'ll get back to you soon!');
+      setFormData({ name: '', email: '', message: '' });
+      
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send message. Please try again or contact me directly.');
+    }
   };
 
   const socialLinks = [
