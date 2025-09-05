@@ -6,23 +6,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 border-t border-gray-800">
+    <footer className="bg-black border-t border-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Copyright */}
           <div className="text-center md:text-left mb-4 md:mb-0">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} Aryan. All rights reserved.
+            <p className="text-white text-sm">
+              © {currentYear} <span className="text-white">Aryan</span>. All rights reserved.
             </p>
-            <p className="text-gray-500 text-xs mt-1">
-              Built with React, Vite & TailwindCSS
+            <p className="text-gray-400 text-xs mt-1">
+              Built with React, Vite & TailwindCSS ✨
             </p>
           </div>
 
           {/* Back to top button */}
           <button
             onClick={scrollToTop}
-            className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors duration-200 group"
+            className="flex items-center space-x-2 text-white hover:text-gray-400 transition-colors duration-200 group"
           >
             <span className="text-sm font-medium">Back to top</span>
             <svg 
@@ -37,9 +37,9 @@ const Footer = () => {
         </div>
 
         {/* Decorative line */}
-        <div className="mt-6 pt-6 border-t border-gray-800">
+        <div className="mt-6 pt-6 border-t border-white">
           <div className="flex justify-center">
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
+            <div className="w-24 h-1 bg-white"></div>
           </div>
         </div>
       </div>

@@ -9,4 +9,360 @@ html {
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000000;
+  overflow-x: hidden;
+}
+
+/* Custom utility classes for cosmic theme */
+@layer utilities {
+  .glow-text {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  
+  .glass-morphism {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .cosmic-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .meteor-trail {
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  }
+
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+
+  /* Custom opacity values for mechanical elements */
+  .opacity-2 {
+    opacity: 0.02;
+  }
+  
+  .opacity-3 {
+    opacity: 0.03;
+  }
+  
+  .opacity-5 {
+    opacity: 0.05;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4a90e2, #00d4ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00d4ff, #4a90e2);
+}
+
+/* Animation for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-float,
+  .animate-gear-slow,
+  .animate-gear-fast,
+  .animate-screw-tighten,
+  .animate-piston,
+  .animate-blueprint-draw,
+  .animate-blueprint-glow,
+  .animate-scanning-line {
+    animation: none;
+  }
+}
+
+/* Mechanical Blueprint Animations */
+@keyframes gear-rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gear-rotate-fast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes screw-tighten {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes piston-move {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Blueprint Text Animations */
+@keyframes blueprint-draw {
+  0% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    opacity: 0.1;
+  }
+}
+
+@keyframes blueprint-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(224, 224, 224, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(224, 224, 224, 0.6));
+  }
+}
+
+@keyframes scanning-line {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.animate-blueprint-draw {
+  animation: blueprint-draw 2s ease-out forwards;
+}
+
+.animate-blueprint-glow {
+  animation: blueprint-glow 3s ease-in-out infinite;
+}
+
+.animate-scanning-line {
+  animation: scanning-line 1.5s ease-in-out infinite;
+}
+
+.animate-gear-slow {
+  animation: gear-rotate-slow 20s linear infinite;
+}
+
+.animate-gear-fast {
+  animation: gear-rotate-fast 15s linear infinite;
+}
+
+.animate-screw-tighten {
+  animation: screw-tighten 2s ease-out forwards;
+}
+
+.animate-piston {
+  animation: piston-move 3s ease-in-out infinite;
+}
+
+.animate-blueprint-draw {
+  animation: blueprint-draw 3s ease-out forwards;
+}
+
+.animate-blueprint-glow {
+  animation: blueprint-glow 4s ease-in-out infinite;
+}
+
+.animate-scanning-line {
+  animation: scanning-line 2s ease-in-out infinite;
+}
+
+/* Add scan animation for diagonal blueprint effect */
+.animate-scan {
+  animation: scan 3s ease-in-out infinite;
+}
+
+/* Add floating animation for nuts & bolts */
+.animate-float-down {
+  animation: float-down linear infinite;
+}
+
+/* Enhanced floating animation with drift and bounce */
+.animate-enhanced-float {
+  animation: enhanced-float linear infinite;
+}
+
+/* Enhanced spinning with variable speeds */
+.animate-enhanced-spin {
+  animation: enhanced-spin linear infinite;
+}
+
+/* Micro elements floating animation */
+.animate-micro-float {
+  animation: micro-float linear infinite;
+}
+
+/* Metallic shine effect */
+.metallic-shine {
+  position: relative;
+}
+
+.metallic-glint {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: metallic-glint 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Add spark animation for interactive effects */
+.animate-spark {
+  animation: spark ease-out forwards;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes enhanced-float {
+  0% {
+    transform: translateY(-100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  95% {
+    transform: translateY(calc(100vh + 50px)) translateX(var(--drift-x, 0px)) rotate(360deg);
+    opacity: 0.3;
+  }
+  98% {
+    transform: translateY(calc(100vh + 30px)) translateX(var(--drift-x, 0px)) rotate(380deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(calc(100vh + 50px)) translateX(var(--drift-x, 0px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes enhanced-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes micro-float {
+  0% {
+    transform: translateY(-50px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(calc(100vh + 20px)) translateX(var(--micro-drift, 0px));
+    opacity: 0;
+  }
+}
+
+@keyframes metallic-glint {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    left: 100%;
+    opacity: 0;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes spark {
+  0% {
+    transform: scale(0) translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) translate(10px, -10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0) translate(20px, -20px);
+    opacity: 0;
+  }
+}
+
+/* Performance optimizations for animations */
+.animate-enhanced-float,
+.animate-enhanced-spin,
+.animate-micro-float,
+.metallic-glint {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-enhanced-float,
+  .animate-enhanced-spin,
+  .animate-micro-float,
+  .metallic-glint,
+  .animate-blueprint-draw {
+    animation: none !important;
+  }
 }

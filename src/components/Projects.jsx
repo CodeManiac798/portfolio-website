@@ -2,69 +2,72 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Smart Engineering Solution",
-      description: "An innovative mechanical engineering project that combines traditional engineering principles with modern technology to solve complex problems.",
-      technologies: ["CAD Design", "3D Modeling", "Prototyping"],
-      status: "In Progress"
+      title: "Waste to Fuel MarketPlace",
+      description: "A Python-based marketplace I developed that provides real-time buying and selling rates for various types of fuels, including waste-derived fuels. The platform integrates key data metrics like calorific value to provide comprehensive, transparent information. I designed a user-friendly interface to display complex data in an accessible format.",
+      technologies: ["Python", "Data Analysis", "Backend Development", "Frontend Design", "API Integration"],
+      status: "Completed",
+      link: "https://www.linkedin.com/posts/aryan-mittal-5762941b9_industrialideathon2025-circulareconomy-wastetofuel-activity-7365453117947072512-aJ-t?utm_source=share&utm_medium=member_desktop&rcm=ACoAADLD3yoBt7EVvAZo00tOsUjzrSHvbo-1qs8"
     },
     {
       id: 2,
-      title: "Entrepreneurial Venture",
-      description: "A startup idea focused on sustainable engineering solutions for small businesses, combining my engineering knowledge with business acumen.",
-      technologies: ["Business Planning", "Market Research", "Product Development"],
-      status: "Planning Phase"
+      title: "AdPulse",
+      description: "A machine learning-driven tool I am currently developing to analyze ad data from multiple CSV files. The tool will generate a comprehensive dashboard visualizing key metrics and performance indicators. Its primary purpose is to help users identify successful ad campaigns and optimize ad spend.",
+      technologies: ["Python", "Machine Learning", "Data Visualization", "Data Science", "Regression Models", "GenAI"],
+      status: "In Development",
+      link: "https://github.com/CodeManiac798/AdPulse"
     },
     {
       id: 3,
-      title: "Innovation Challenge Project",
-      description: "A competition-winning project that addresses real-world engineering challenges through creative problem-solving and innovative design thinking.",
-      technologies: ["Problem Solving", "Design Thinking", "Presentation"],
-      status: "Completed"
-    },
-    {
-      id: 4,
-      title: "Future Tech Initiative",
-      description: "An exploratory project investigating emerging technologies in mechanical engineering and their potential applications in various industries.",
-      technologies: ["Research", "Technology Analysis", "Future Planning"],
-      status: "Concept Stage"
+      title: "Jarvis Smart Voice Assistant",
+      description: "A voice-controlled assistant I developed using features from Eleven Labs for natural language processing. The project successfully engineered a voice-responsive system that accurately responds to user commands, showcasing my skills in programming and API integration.",
+      technologies: ["Python", "Eleven Labs API", "Natural Language Processing (NLP)", "API Integration"],
+      status: "Completed",
+      link: null // No link provided for this project
     }
   ];
 
   const handleViewProject = (projectId) => {
-    alert(`Viewing project: ${projects.find(p => p.id === projectId)?.title}\n\nThis is a placeholder. In a real implementation, this would navigate to a detailed project page or open a modal with more information.`);
+    const project = projects.find(p => p.id === projectId);
+    if (project && project.link) {
+      window.open(project.link, '_blank');
+    } else {
+      alert(`${project?.title}\n\nMore details coming soon! This project is still being documented.`);
+    }
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-900">
+    <section id="projects" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">My Projects</h2>
-          <div className="w-24 h-1 bg-blue-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Here are some of the projects I've been working on, ranging from engineering solutions to entrepreneurial ventures.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-gray-800 rounded-lg p-6 border border-gray-700 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10"
+              className="bg-black border border-white hover:border-white transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-white/20 rounded-lg p-6"
             >
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-semibold text-white">{project.title}</h3>
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                   project.status === 'Completed' 
-                    ? 'bg-green-600 text-green-100' 
+                    ? 'bg-white text-black border border-white' 
+                    : project.status === 'In Development'
+                    ? 'bg-white text-black border border-white'
                     : project.status === 'In Progress'
-                    ? 'bg-blue-600 text-blue-100'
-                    : 'bg-yellow-600 text-yellow-100'
+                    ? 'bg-white text-black border border-white'
+                    : 'bg-white text-black border border-white'
                 }`}>
                   {project.status}
                 </span>
               </div>
               
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-white mb-6 leading-relaxed">
                 {project.description}
               </p>
 
@@ -74,7 +77,7 @@ const Projects = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-gray-700 text-blue-300 px-3 py-1 rounded-full text-xs font-medium"
+                      className="bg-black border border-white text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-white hover:text-black transition-colors duration-200"
                     >
                       {tech}
                     </span>
@@ -84,9 +87,18 @@ const Projects = () => {
 
               <button
                 onClick={() => handleViewProject(project.id)}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+                className="w-full bg-white text-black hover:bg-black hover:text-white border border-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-white/30 flex items-center justify-center gap-2"
               >
-                View Project
+                {project.link ? (
+                  <>
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                    {project.id === 2 ? 'View on GitHub' : 'View Project'}
+                  </>
+                ) : (
+                  'More Details Soon'
+                )}
               </button>
             </div>
           ))}
@@ -94,7 +106,7 @@ const Projects = () => {
 
         {/* Call to action */}
         <div className="text-center mt-16">
-          <p className="text-gray-300 mb-6">
+          <p className="text-white mb-6">
             Interested in collaborating or learning more about my work?
           </p>
           <button
@@ -104,7 +116,7 @@ const Projects = () => {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-black border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-white/20"
           >
             Let's Connect
           </button>

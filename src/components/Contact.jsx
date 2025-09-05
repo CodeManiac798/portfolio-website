@@ -56,12 +56,12 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-800">
+    <section id="contact" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Get In Touch</h2>
-          <div className="w-24 h-1 bg-blue-400 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
+          <p className="text-xl text-white max-w-3xl mx-auto">
             Have a project in mind or just want to chat? I'd love to hear from you. 
             Send me a message and I'll get back to you as soon as possible.
           </p>
@@ -69,11 +69,11 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-gray-900 rounded-lg p-8 border border-gray-700">
+          <div className="bg-black border border-white rounded-lg p-8">
             <h3 className="text-2xl font-semibold text-white mb-6">Send me a message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                   Name
                 </label>
                 <input
@@ -83,13 +83,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-black border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors duration-200"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                   Email
                 </label>
                 <input
@@ -99,13 +99,13 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors duration-200"
+                  className="w-full px-4 py-3 bg-black border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors duration-200"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                   Message
                 </label>
                 <textarea
@@ -115,14 +115,14 @@ const Contact = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-colors duration-200 resize-none"
+                  className="w-full px-4 py-3 bg-black border border-white rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors duration-200 resize-none"
                   placeholder="Tell me about your project or just say hello!"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
+                className="w-full bg-white text-black hover:bg-black hover:text-white border border-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-white/25"
               >
                 Send Message
               </button>
@@ -133,7 +133,7 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold text-white mb-6">Let's connect</h3>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8">
+              <p className="text-white text-lg leading-relaxed mb-8">
                 I'm always interested in new opportunities, collaborations, and meaningful conversations. 
                 Whether you have a project idea, want to discuss engineering solutions, or just want to 
                 connect with a fellow entrepreneur, I'd love to hear from you!
@@ -148,22 +148,19 @@ const Contact = () => {
                   <a
                     key={social.name}
                     href={social.url}
-                    className="flex items-center justify-center w-12 h-12 bg-gray-700 hover:bg-blue-600 text-gray-300 hover:text-white rounded-lg transition-all duration-300 transform hover:scale-110"
+                    className="flex items-center justify-center w-12 h-12 bg-black border border-white text-white hover:bg-white hover:text-black rounded-lg transition-all duration-300 transform hover:scale-110"
                     title={social.placeholder ? `${social.name} (placeholder link)` : social.name}
                   >
                     {social.icon}
                   </a>
                 ))}
               </div>
-              <p className="text-sm text-gray-400 mt-4">
-                * Social links are placeholders - replace with your actual profiles
-              </p>
             </div>
 
             {/* Additional Info */}
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-700">
+            <div className="bg-black border border-white rounded-lg p-6">
               <h4 className="text-lg font-semibold text-white mb-3">Quick Response</h4>
-              <p className="text-gray-300 text-sm">
+              <p className="text-white text-sm">
                 I typically respond to messages within 24 hours. For urgent matters, 
                 feel free to mention it in your message and I'll prioritize your request.
               </p>
