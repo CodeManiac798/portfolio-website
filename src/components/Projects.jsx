@@ -3,8 +3,8 @@ const Projects = () => {
     {
       id: 1,
       title: "Waste to Fuel MarketPlace",
-      description: "A Python-based marketplace I developed that provides real-time buying and selling rates for various types of fuels, including waste-derived fuels. The platform integrates key data metrics like calorific value to provide comprehensive, transparent information. I designed a user-friendly interface to display complex data in an accessible format.",
-      technologies: ["Python", "Data Analysis", "Backend Development", "Frontend Design", "API Integration"],
+      description: "A collaborative Python-based marketplace developed as part of a team project that provides real-time buying and selling rates for various types of fuels, including waste-derived fuels. As a key contributor, I worked on integrating data metrics like calorific value to provide comprehensive, transparent information. Our team designed a user-friendly interface to display complex data in an accessible format.",
+      technologies: ["Python", "Data Analysis", "Backend Development", "Frontend Design", "API Integration", "Team Collaboration"],
       status: "Completed",
       link: "https://www.linkedin.com/posts/aryan-mittal-5762941b9_industrialideathon2025-circulareconomy-wastetofuel-activity-7365453117947072512-aJ-t?utm_source=share&utm_medium=member_desktop&rcm=ACoAADLD3yoBt7EVvAZo00tOsUjzrSHvbo-1qs8"
     },
