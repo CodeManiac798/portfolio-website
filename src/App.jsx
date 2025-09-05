@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar'
-import BlueprintIntro from './components/BluePrintIntro'
+import BlueprintIntro from './components/BlueprintIntro'
 import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
