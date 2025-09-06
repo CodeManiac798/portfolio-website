@@ -2,6 +2,8 @@
 
 A modern, responsive personal portfolio website built with React, Vite, and TailwindCSS.
 
+<!-- Updated: September 7, 2025 - Social links and resume updated -->
+
 ## 🚀 Features
 
 - **Modern Design**: Clean, minimalistic dark theme with blue accents
