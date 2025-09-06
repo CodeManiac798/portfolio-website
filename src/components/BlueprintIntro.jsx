@@ -455,8 +455,17 @@ const BlueprintIntro = () => {
           <button
             onClick={async () => {
               try {
-                // First, check if the file exists
-                const response = await fetch('/Aryan_Mittal_Resume.pdf');
+                // Add cache-busting parameter to ensure fresh download
+                const timestamp = new Date().getTime();
+                const response = await fetch(`/Aryan_Mittal_Resume.pdf?v=${timestamp}`, {
+                  cache: 'no-cache',
+                  headers: {
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                  }
+                });
+                
                 if (!response.ok) {
                   throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -467,10 +476,10 @@ const BlueprintIntro = () => {
                 // Create object URL
                 const url = window.URL.createObjectURL(blob);
                 
-                // Create download link
+                // Create download link with timestamp to ensure unique download
                 const link = document.createElement('a');
                 link.href = url;
-                link.download = 'Aryan_Mittal_Resume.pdf';
+                link.download = `Aryan_Mittal_Resume_${timestamp}.pdf`;
                 link.type = 'application/pdf';
                 
                 // Trigger download
@@ -485,9 +494,10 @@ const BlueprintIntro = () => {
                 console.error('Error downloading resume:', error);
                 alert('Sorry, there was an error downloading the resume. Please try again or contact me directly.');
                 
-                // Fallback: try direct navigation
+                // Fallback: try direct navigation with cache-busting
                 try {
-                  window.open('/Aryan_Mittal_Resume.pdf', '_blank');
+                  const timestamp = new Date().getTime();
+                  window.open(`/Aryan_Mittal_Resume.pdf?v=${timestamp}`, '_blank');
                 } catch (fallbackError) {
                   console.error('Fallback also failed:', fallbackError);
                 }
